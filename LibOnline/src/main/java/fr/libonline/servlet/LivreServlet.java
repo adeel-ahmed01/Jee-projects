@@ -20,9 +20,9 @@ public class LivreServlet extends HttpServlet{
 		
 		req.setAttribute("produits", daoLivre.findAll());
 		
-		//DELEGUATION DE LA REQUETE
+		//DELEGATION DE LA REQUETE
 		this.getServletContext()
-			.getRequestDispatcher("/WEB-INF/views/livre/list.jsp")
+			.getRequestDispatcher("/WEB-INF/views/livre/liste-livres.jsp")
 			.forward(req, resp);
 	}	
 }
