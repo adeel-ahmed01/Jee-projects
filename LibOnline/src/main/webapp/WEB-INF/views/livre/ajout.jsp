@@ -23,12 +23,12 @@
 			</div>
 			
 			<div>
-				<label>Photo</label>
+				<label>Photo de couverture</label>
 				<input type="text" name="photo" />
 			</div>
 			
 			<div>
-				<label>Resume</label>
+				<label>Résumé</label>
 				<input type="text" name="resume" />
 			</div>
 			

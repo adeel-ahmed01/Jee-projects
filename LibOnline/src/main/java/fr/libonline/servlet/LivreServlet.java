@@ -18,7 +18,7 @@ public class LivreServlet extends HttpServlet{
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		LivreDao daoLivre = new LivreDaoSqlImpl();
 		
-		req.setAttribute("produits", daoLivre.findAll());
+		req.setAttribute("livres", daoLivre.findAll());
 		
 		//DELEGATION DE LA REQUETE
 		this.getServletContext()

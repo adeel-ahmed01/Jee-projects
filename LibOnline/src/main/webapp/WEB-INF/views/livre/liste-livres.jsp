@@ -9,18 +9,16 @@
 		<table class="table table-striped mt-5">
 			<thead>
 				<tr>
-					<th>IdLivre</th>
-					<th>Titre Livre</th>
-					<th>Auteur Livre</th>
-					<th>Prix Livre</th>
-					<th>Photo Livre</th>
-					<th>Resume Livre</th>
+					<th>Titre</th>
+					<th>Auteur</th>
+					<th>Prix du livre</th>
+					<th>Couverture du livre</th>
+					<th>Résumé du livre</th>
 			</thead>
 			
 			<tbody>
 				<c:forEach var="livre" items="${ livres }">
 					<tr>
-						<td>${ livre.id }</td>
 						<td>${ livre.titre }</td>
 						<td>${ livre.auteur }</td>
 						<td>${ livre.prix }</td>
