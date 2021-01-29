@@ -24,8 +24,8 @@
 						<td>${ commande.clientId }</td>
 						<td>${ commande.montant }</td>
 						<td>
-							<a class="btn btn-warning" href="categorie-modifier?id=${ commande.id }">Modifier</a>
-							<a class="btn btn-danger" href="categorie-supprimer?id=${ commande.id }">Supprimer</a>
+							<a class="btn btn-warning" href="commande-modifier?id=${ commande.id }">Modifier</a>
+							<a class="btn btn-danger" href="commande-supprimer?id=${ commande.id }">Supprimer</a>
 						</td>
 				</c:forEach>
 			</tbody>
