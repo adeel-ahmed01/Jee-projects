@@ -11,9 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 import fr.libonline.dao.LivreDao;
 import fr.libonline.dao.sql.LivreDaoSqlImpl;
 
-@WebServlet("/livres")
+@WebServlet(value = "/livres", loadOnStartup = 1)
 public class LivreServlet extends HttpServlet{
-	
+	private static final long serialVersionUID = 1L;
+
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		LivreDao daoLivre = new LivreDaoSqlImpl();

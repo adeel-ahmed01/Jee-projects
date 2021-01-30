@@ -4,7 +4,7 @@
 <t:layout>
 	<jsp:body>
 		<h1>
-			EXAMPLE
+			REGISTER
 		</h1>
 	</jsp:body>
 </t:layout>

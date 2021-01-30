@@ -16,11 +16,11 @@ public class CommandeDaoSqlImpl extends DaoSql implements CommandeDao {
 	
 	private static final String SELECT_BY_ID = "SELECT * FROM commande WHERE CMD_ID = ?";
 	
-	private static final String INSERT = "INSERT INTO commande (CMD_ID, CMD_DATE, CMD_CLIENT_ID, CMD_MONTANT) " //
-										+ "VALUES (?,?,?,?,?)"; //
+	private static final String INSERT = "INSERT INTO commande (CMD_DATE, CMD_CLIENT_ID, CMD_MONTANT) " //
+										+ "VALUES (?,?,?)"; //
 	
 	private static final String UPDATE = "UPDATE commande " //
-										+ "SET CMD_ID = ?, CMD_DATE = ?, CMD_CLIENT_ID = ?, CMD_MONTANT = ? " //
+										+ "CMD_DATE = ?, CMD_CLIENT_ID = ?, CMD_MONTANT = ? " //
 										+ "WHERE CMD_ID = ?"; //
 	
 	private static final String DELETE = "DELETE FROM commande WHERE CMD_ID = ?";
