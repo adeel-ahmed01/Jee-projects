@@ -4,7 +4,7 @@
 <t:layout>	
 	<jsp:body>
 		<div class="container py-5">
-        	<p class="text-success lead"><i class="${!empty successMessage ? 'fa fa-check-circle' : 'fa fa-check-circle'}" aria-hidden="true"></i>
+        	<p class="${!empty successMessage ? 'text-success' : 'text-danger'} lead"><i class="${!empty successMessage ? 'fa fa-check-circle' : 'fa fa-times-circle'}" aria-hidden="true"></i>
         		${!empty successMessage ? successMessage : failureMessage}
         	</p>
     	</div>
