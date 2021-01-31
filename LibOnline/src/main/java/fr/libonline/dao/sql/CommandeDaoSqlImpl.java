@@ -70,7 +70,7 @@ public class CommandeDaoSqlImpl extends DaoSql implements CommandeDao {
 			PreparedStatement pstmt = this.connexionSql.prepareStatement(INSERT);
 			pstmt.setDate(1, new java.sql.Date(entity.getDate().getTime()));
 			pstmt.setInt(2, entity.getClientId());
-			pstmt.setInt(3, entity.getMontant());
+			pstmt.setDouble(3, entity.getMontant());
 			pstmt.execute();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -88,7 +88,7 @@ public class CommandeDaoSqlImpl extends DaoSql implements CommandeDao {
 			PreparedStatement pstmt = this.connexionSql.prepareStatement(UPDATE);
 			pstmt.setDate(1, new java.sql.Date(entity.getDate().getTime()));
 			pstmt.setInt(2, entity.getClientId());
-			pstmt.setInt(3, entity.getMontant());
+			pstmt.setDouble(3, entity.getMontant());
 			pstmt.execute();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -121,7 +121,7 @@ public class CommandeDaoSqlImpl extends DaoSql implements CommandeDao {
 					.id(rs.getInt("CMD_ID"))
 					.date(rs.getDate("CMD_DATE"))
 					.clientId(rs.getInt("CMD_CLIENT_ID"))
-					.montant(rs.getInt("CMD_MONTANT"));
+					.montant(rs.getDouble("CMD_MONTANT"));
 	}
 
 }

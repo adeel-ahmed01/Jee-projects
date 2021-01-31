@@ -6,6 +6,8 @@ import fr.libonline.dao.sql.ClientDaoSqlImpl;
 import fr.libonline.model.Client;
 
 public class ClientService implements IService<Client> {
+	
+	private static final String ADMIN_LOGIN = "admin";
 
 	@Override
 	public List<Client> findAll() {
@@ -19,6 +21,10 @@ public class ClientService implements IService<Client> {
 	
 	public Client findByCredentiants(String login, String password) {
 		return new ClientDaoSqlImpl().findByLoginAndPassword(login, password);
+	}
+	
+	public boolean existsByLogin(String login) {
+		return new ClientDaoSqlImpl().findByLogin(login) != null;
 	}
 
 	@Override
@@ -34,6 +40,25 @@ public class ClientService implements IService<Client> {
 	@Override
 	public boolean deleteById(int id) {
 		return new ClientDaoSqlImpl().deleteById(id);
+	}
+
+	public boolean validateUserInfo(String login, String password, String nom, String prenom, String adresse) {
+		if (
+				isInValid(login) ||
+				isInValid(password) ||
+				isInValid(nom) ||
+				isInValid(prenom) ||
+				isInValid(adresse) ||
+				existsByLogin(login) ||
+				login.toLowerCase().equals(ADMIN_LOGIN)
+			) {
+			return false;
+		}
+		return true;
+	}
+
+	private boolean isInValid(String string) {
+		return string == null || string.isBlank();
 	}
 
 }

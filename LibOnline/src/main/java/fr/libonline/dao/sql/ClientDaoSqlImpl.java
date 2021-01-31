@@ -16,6 +16,10 @@ public class ClientDaoSqlImpl extends DaoSql implements ClientDao {
 	
 	private static final String SELECT_BY_ID = "SELECT * FROM client WHERE CL_ID = ?";
 	
+	private static final String SELECT_BY_LOGIN = 	"SELECT * FROM client " //
+													+ "WHERE CL_LOGIN = ? " //
+													+ "LIMIT 1"; //
+	
 	private static final String SELECT_BY_LOGIN_AND_PASSWORD = 	"SELECT * FROM client " //
 																+ "WHERE CL_LOGIN = ? AND CL_PASSWORD = ? " //
 																+ "LIMIT 1"; //
@@ -115,6 +119,7 @@ public class ClientDaoSqlImpl extends DaoSql implements ClientDao {
 			pstmt.setString(2, entity.getPrenom());
 			pstmt.setString(3, entity.getAdresse());
 			pstmt.setString(4, entity.getLogin());
+			pstmt.setInt(5, entity.getId());
 			pstmt.execute();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -140,6 +145,25 @@ public class ClientDaoSqlImpl extends DaoSql implements ClientDao {
 		finally {
 			this.closeConnection();
 		}
+	}
+	
+
+	public Client findByLogin(String login) {
+		try {
+			this.openConnection();
+			PreparedStatement pstmt = this.connexionSql.prepareStatement(SELECT_BY_LOGIN);
+			pstmt.setString(1, login);
+			ResultSet rs = pstmt.executeQuery();
+			if (rs.next()) {
+				return mapResult(rs);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		finally {
+			this.closeConnection();
+		}
+		return null;
 	}
 
 	private Client mapResult(ResultSet rs) throws SQLException {

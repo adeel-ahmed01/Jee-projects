@@ -28,15 +28,18 @@
 	            <ul class="nav navbar-nav navbar-right">
 	            	<c:choose>
 	            		<c:when test="${!empty sessionScope['currentUser']}">
-	            			<c:choose>
-	            				<c:when test="${sessionScope['currentUser'].login == 'admin'}">
-	            					<li class="nav-item">
-                            			<a class="nav-link mr-2 text-white" href="/Completer">
-                                			<i class="fa fa-cog fa-1x" aria-hidden="true"></i>
-                            			</a>
-                        			</li>
-	            				</c:when>
-	            			</c:choose>
+            				<c:if test="${sessionScope['currentUser'].login == 'admin'}">
+	                        	<li class="nav-item dropdown pt-1">
+			                        <a href="#" class="dropdown-toggle mr-3 text-white" data-toggle="dropdown"> 
+			                            <i class="fa fa-cog fa-1x" aria-hidden="true"></i>
+			                        </a>
+			                        <ul class="dropdown-menu">
+			                            <li class="dropdown-item"><a class="text-center" href="/Completer">Gestion des livres</a></li>
+			                            <li class="dropdown-item"><a class="text-center" href="/Completer">Gestion des utilisateurs</a></li>
+			                            <li class="dropdown-item"><a class="text-center" href="/Completer">Gestion des commandes</a></li>
+			                        </ul>
+			                    </li>
+            				</c:if>
 	            			<li class="nav-item dropdown">
 		                        <a href="#" class="dropdown-toggle mr-3 text-white" data-toggle="dropdown">
 		                            <i class="fa fa-user fa-1x" aria-hidden="true"></i>
@@ -44,9 +47,9 @@
 		                        <a class="btn btn-default btn-danger text-white mr-3" href="disconnect">
 		                            Se déconnecter
 		                        </a>
-		                        <ul class="dropdown-menu mx-auto">
-		                            <li><a class="text-center ml-3" href="/Completer">Mes informations</a></li>
-		                            <li><a class="text-center ml-3" href="/Completer">Mes commandes</a></li>
+		                        <ul class="dropdown-menu">
+		                            <li class="dropdown-item"><a class="text-center" href="/Completer">Mes informations</a></li>
+		                            <li class="dropdown-item"><a class="text-center" href="/Completer">Mes commandes</a></li>
 		                        </ul>
 		                    </li>
 	            		</c:when>

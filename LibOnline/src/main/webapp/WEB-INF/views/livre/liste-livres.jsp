@@ -15,7 +15,7 @@
 	                            <div class="modal fade m-5" id="resume${ status.index }" tabindex="-5" role="dialog"
 	                                 aria-hidden="true">
 	                                <div class="modal-dialog modal-dialog-centered" role="document">
-	                                    <div class="modal-content">
+	                                    <div class="modal-content" style="min-width: 35vh; min-height: 40vh">
 	                                        <div class="modal-header bg-warning">
 	                                            <div class="d-flex flex-column justify-content-center">
 	                                                <h6 class="my-0">${ livre.titre }</h6>
@@ -31,8 +31,9 @@
 	                                                    <div class="col-md-4 mr-0">
 	                                                        <img src="${ livre.photo }" class="card-img-top book-image img-thumbnail mx-0" style="width: 17rem;" >
 	                                                    </div>
-	                                                    <div class="col-md-6 m-0 p-0">
-	                                                        <h6 class="text-left"><strong class="text-muted">Résumé : </strong>${ livre.resume }</h6>
+	                                                    <div class="col-md-7 m-0 p-0">
+	                                                    	<h5 class="text-left"><strong class="text-muted">Résumé </strong></h5>
+	                                                        <h5 class="text-left font-weight-normal font-italic">${ livre.resume }</h5>
 	                                                    </div>
 	                                                </div>
 	                                            </div>
