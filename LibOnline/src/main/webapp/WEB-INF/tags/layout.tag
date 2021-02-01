@@ -3,6 +3,7 @@
 <html>
 	<head>
 		<base href="/projet-jee/" />
+		<title>Lib Online</title>
 	   <link 
 	       rel="stylesheet" 
 	       href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
@@ -34,9 +35,9 @@
 			                            <i class="fa fa-cog fa-1x" aria-hidden="true"></i>
 			                        </a>
 			                        <ul class="dropdown-menu">
-			                            <li class="dropdown-item"><a class="text-center" href="/Completer">Gestion des livres</a></li>
-			                            <li class="dropdown-item"><a class="text-center" href="/Completer">Gestion des utilisateurs</a></li>
-			                            <li class="dropdown-item"><a class="text-center" href="/Completer">Gestion des commandes</a></li>
+			                            <li class="dropdown-item"><a class="text-center" href="livres-administration">Gestion des livres</a></li>
+			                            <li class="dropdown-item"><a class="text-center" href="users-administration">Gestion des utilisateurs</a></li>
+			                            <li class="dropdown-item"><a class="text-center" href="orders-administration">Gestion des commandes</a></li>
 			                        </ul>
 			                    </li>
             				</c:if>
@@ -48,8 +49,8 @@
 		                            Se déconnecter
 		                        </a>
 		                        <ul class="dropdown-menu">
-		                            <li class="dropdown-item"><a class="text-center" href="/Completer">Mes informations</a></li>
-		                            <li class="dropdown-item"><a class="text-center" href="/Completer">Mes commandes</a></li>
+		                            <li class="dropdown-item"><a class="text-center" href="mon-profil">Mes informations</a></li>
+		                            <li class="dropdown-item"><a class="text-center" href="mes-commandes">Mes commandes</a></li>
 		                        </ul>
 		                    </li>
 	            		</c:when>

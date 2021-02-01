@@ -116,6 +116,7 @@ public class LivreDaoSqlImpl extends DaoSql implements LivreDao{
 			pstmt.setDouble(3, entity.getPrix());
 			pstmt.setString(4, entity.getPhoto());
 			pstmt.setString(5, entity.getResume());
+			pstmt.setInt(6, entity.getId());
 			pstmt.execute();
 		} catch (SQLException e) {
 			e.printStackTrace();

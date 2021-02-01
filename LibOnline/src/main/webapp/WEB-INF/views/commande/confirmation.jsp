@@ -86,7 +86,7 @@
 	                            <div class="input-group-prepend">
 	                                <span class="input-group-text">@</span>
 	                            </div>
-	                            <input type="email" class="form-control" id="username" placeholder="monadresse@example.com" value="${sessionScope['currentUser'].login}" required>
+	                            <input type="email" class="form-control" id="username" placeholder="monadresse@example.com" value="${sessionScope['currentUser'].login}@example.com" required>
 	                            <div class="invalid-feedback" style="width: 100%;">
 	                                Your username is required.
 	                            </div>

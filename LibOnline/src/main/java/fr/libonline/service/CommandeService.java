@@ -32,4 +32,8 @@ public class CommandeService implements IService<Commande> {
 		return new CommandeDaoSqlImpl().deleteById(id);
 	}
 
+	public List<Commande> findByClientId(int id) {
+		return new CommandeDaoSqlImpl().findByClientId(id);
+	}
+
 }
