@@ -58,7 +58,7 @@ public class ClientService implements IService<Client> {
 	}
 
 	private boolean isInValid(String string) {
-		return string == null || string.isBlank();
+		return string == null || string.isEmpty();
 	}
 
 }

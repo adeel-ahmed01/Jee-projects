@@ -39,14 +39,14 @@
 			                           </td>
 			                           <td class="text-right align-middle"><h6
 												class="my-0">
-												<fmt:formatNumber maxIntegerDigits="2"
+												<fmt:formatNumber
 													value="${ item.key.prix }" type="currency" />
 											</h6></td>
 			                           <td class="text-center align-middle"><h6
 												class="my-0">${ item.value }</h6></td>
 			                           <td class="text-right align-middle"><h6
 												class="my-0">
-												<fmt:formatNumber maxIntegerDigits="2"
+												<fmt:formatNumber
 													value="${ item.key.prix * item.value }" type="currency" />
 											</h6></td>
 			                           <td class="text-center align-middle">
@@ -64,7 +64,7 @@
 			                           <th colspan="4"
 										class="text-right align-middle">Total : </th>
 			                           <th class="text-right align-middle"><fmt:formatNumber
-											maxIntegerDigits="2" value="${ sessionScope['totalPanier'] }"
+											value="${ sessionScope['totalPanier'] }"
 											type="currency" /></th>
 			                           <td class="text-right align-middle"><a
 										role="button" href="confirm-order"

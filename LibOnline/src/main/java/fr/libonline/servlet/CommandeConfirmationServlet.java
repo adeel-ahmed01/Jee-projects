@@ -41,7 +41,6 @@ public class CommandeConfirmationServlet extends HttpServlet {
 			response.sendRedirect("panier");
 			return;
 		}
-
 		this.getServletContext().getRequestDispatcher("/WEB-INF/views/commande/confirmation.jsp").forward(request,
 				response);
 	}
@@ -90,7 +89,7 @@ public class CommandeConfirmationServlet extends HttpServlet {
 	}
 
 	private boolean isValid(String string) {
-		return string != null && !string.isBlank();
+		return string != null && !string.isEmpty();
 	}
 
 }

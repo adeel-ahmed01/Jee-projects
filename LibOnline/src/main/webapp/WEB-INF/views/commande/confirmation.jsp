@@ -32,19 +32,19 @@
 	                                    <small class="text-muted">${ item.key.auteur }</small>
 	                                </div>
 	                            </div>
-	                            <span class="text-muted"><fmt:formatNumber maxIntegerDigits="2" value="${ item.key.prix * sessionScope['cart'].get(item.key.id) }" type="currency"/></span>
+	                            <span class="text-muted"><fmt:formatNumber value="${ item.key.prix * sessionScope['cart'].get(item.key.id) }" type="currency"/></span>
 	                        </li>
 	                    </c:forEach>
 	                    <li class="list-group-item d-flex justify-content-between">
 	                        <span>Sous-total</span>
-	                        <strong><fmt:formatNumber maxIntegerDigits="2" value="${ sessionScope['totalPanier'] }" type="currency"/></strong>
+	                        <strong><fmt:formatNumber value="${ sessionScope['totalPanier'] }" type="currency"/></strong>
 	                    </li>
 	                    <li class="list-group-item d-flex justify-content-between bg-light">
 	                        <div class="text-success">
 	                            <h6 class="my-0">TVA</h6>
 	                            <small>20%</small>
 	                        </div>
-	                        <span class="text-success">+ <fmt:formatNumber maxIntegerDigits="2" value="${ sessionScope['totalPanier'] * 0.20 }" type="currency"/></span>
+	                        <span class="text-success">+ <fmt:formatNumber value="${ sessionScope['totalPanier'] * 0.20 }" type="currency"/></span>
 	                    </li>
 	                    <li class="list-group-item d-flex justify-content-between bg-light">
 	                        <div class="text-success">
@@ -55,7 +55,7 @@
 	                    <li class="list-group-item d-flex justify-content-between">
 	                        <span>Total à payer (TTC)</span>
 	                        <strong>
-	                        	<fmt:formatNumber maxIntegerDigits="2" value="${ sessionScope['totalPanier'] + (sessionScope['totalPanier'] * 0.20) }" type="currency"/>
+	                        	<fmt:formatNumber value="${ sessionScope['totalPanier'] + (sessionScope['totalPanier'] * 0.20) }" type="currency"/>
 	                        </strong>
 	                    </li>
 	                </ul>
