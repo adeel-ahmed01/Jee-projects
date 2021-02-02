@@ -11,7 +11,7 @@
 	            <h1>Utilisateurs</h1>
 	        </div>
 	        <div class="row">
-	       	<form method="get" action="users-update?modifiedObjectId=${ modifiedObjectId }">
+	       	<form method="get" action="users-update">
 	            <c:choose>
 	            	<c:when test="${!empty users}">
 	            		<table class="table">

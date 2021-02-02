@@ -20,11 +20,13 @@ import fr.libonline.service.LivreService;
 public class AdministrationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	private static final String USERS_VIEW = "/WEB-INF/views/administration/users.jsp";
+	private static final String BASE_PATH = "/WEB-INF/views/administration/";
+	
+	private static final String USERS_VIEW = "users.jsp";
 
-	private static final String BOOKS_VIEW = "/WEB-INF/views/administration/books.jsp";
+	private static final String BOOKS_VIEW = "books.jsp";
 
-	private static final String ORDERS_VIEW = "/WEB-INF/views/administration/orders.jsp";
+	private static final String ORDERS_VIEW = "orders.jsp";
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -44,19 +46,19 @@ public class AdministrationServlet extends HttpServlet {
 					request.setAttribute("modifiedObjectId", id);
 				}
 				// On retourne la bonne page
-				String path = "";
+				String path = BASE_PATH;
 				if (request.getServletPath().equals("/users-administration")) {
 					ClientService clientService = new ClientService();
 					request.setAttribute("users", clientService.findAll());
-					path = USERS_VIEW;
+					path += USERS_VIEW;
 				} else if (request.getServletPath().equals("/livres-administration")) {
 					LivreService livreService = new LivreService();
 					request.setAttribute("livres", livreService.findAll());
-					path = BOOKS_VIEW;
+					path += BOOKS_VIEW;
 				} else if (request.getServletPath().equals("/orders-administration")) {
 					CommandeService commandeService = new CommandeService();
 					request.setAttribute("commandes", commandeService.findAll());
-					path = ORDERS_VIEW;
+					path += ORDERS_VIEW;
 				}
 				this.getServletContext().getRequestDispatcher(path).forward(request, response);
 			}

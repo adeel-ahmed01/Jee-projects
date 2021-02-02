@@ -1,34 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
   <display-name>projet-jee</display-name>
-  <servlet>
-    <description></description>
-    <display-name>LivreCrudServlet</display-name>
-    <servlet-name>LivreCrudServlet</servlet-name>
-    <servlet-class>fr.libonline.servlet.LivreCrudServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>LivreCrudServlet</servlet-name>
-    <url-pattern>/LivreCrudServlet</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>CommandeCrudServlet</display-name>
-    <servlet-name>CommandeCrudServlet</servlet-name>
-    <servlet-class>fr.libonline.servlet.CommandeCrudServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>CommandeCrudServlet</servlet-name>
-    <url-pattern>/CommandeCrudServlet</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>ProfileServlet</display-name>
-    <servlet-name>ProfileServlet</servlet-name>
-    <servlet-class>fr.libonline.servlet.ProfileServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ProfileServlet</servlet-name>
-    <url-pattern>/ProfileServlet</url-pattern>
-  </servlet-mapping>
 </web-app>

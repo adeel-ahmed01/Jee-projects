@@ -11,7 +11,7 @@
 	            <h1>Livres</h1>
 	        </div>
 	        <div class="row">
-	       	<form method="get" action="livres-update?modifiedObjectId=${ modifiedObjectId }">
+	       	<form method="get" action="livres-update">
 	            <c:choose>
 	            	<c:when test="${!empty livres}">
 	            		<table class="table">
