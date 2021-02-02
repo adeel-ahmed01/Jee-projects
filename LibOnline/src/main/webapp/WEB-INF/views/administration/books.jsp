@@ -6,7 +6,7 @@
 
 <t:layout>
 	<jsp:body>
-		<div class="container py-5" style="min-width: 100vh">
+		<div class="container-fluid p-5">
 	        <div class="row">
 	            <h1>Livres</h1>
 	        </div>

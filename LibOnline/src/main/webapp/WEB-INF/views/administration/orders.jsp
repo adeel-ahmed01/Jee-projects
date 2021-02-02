@@ -6,7 +6,7 @@
 
 <t:layout>
 	<jsp:body>
-		<div class="container py-5">
+		<div class="container-fluid p-5">
 	        <div class="row">
 	            <h1>Commandes</h1>
 	        </div>
