@@ -1,11 +1,33 @@
 package fr.libonline.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "client")
 public class Client {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "CL_ID")
 	private int id;
+	
+	@Column(name = "CL_NOM", length = 50, nullable = false)
 	private String nom;
+	
+	@Column(name = "CL_PRENOM", length = 50, nullable = false)
 	private String prenom;
+	
+	@Column(name = "CL_ADRESSE", length = 150, nullable = false)
 	private String adresse;
+	
+	@Column(name = "CL_LOGIN", length = 50)
 	private String login;
+	
+	@Column(name = "CL_PASSWORD", length = 300)
 	private String password;
 
 	public Client() {
