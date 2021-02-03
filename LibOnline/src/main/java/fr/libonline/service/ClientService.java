@@ -2,7 +2,7 @@ package fr.libonline.service;
 
 import java.util.List;
 
-import fr.libonline.dao.sql.ClientDaoSqlImpl;
+import fr.libonline.dao.jpa.ClientDaoJpaImpl;
 import fr.libonline.model.Client;
 
 public class ClientService implements IService<Client> {
@@ -11,35 +11,35 @@ public class ClientService implements IService<Client> {
 
 	@Override
 	public List<Client> findAll() {
-		return new ClientDaoSqlImpl().findAll();
+		return new ClientDaoJpaImpl().findAll();
 	}
 
 	@Override
 	public Client findById(int id) {
-		return new ClientDaoSqlImpl().findById(id);
+		return new ClientDaoJpaImpl().findById(id);
 	}
 	
 	public Client findByCredentiants(String login, String password) {
-		return new ClientDaoSqlImpl().findByLoginAndPassword(login, password);
+		return new ClientDaoJpaImpl().findByLoginAndPassword(login, password);
 	}
 	
 	public boolean existsByLogin(String login) {
-		return new ClientDaoSqlImpl().findByLogin(login) != null;
+		return new ClientDaoJpaImpl().findByLogin(login) != null;
 	}
 
 	@Override
 	public Client add(Client entity) {
-		return new ClientDaoSqlImpl().add(entity);
+		return new ClientDaoJpaImpl().add(entity);
 	}
 
 	@Override
 	public Client save(Client entity) {
-		return new ClientDaoSqlImpl().save(entity);
+		return new ClientDaoJpaImpl().save(entity);
 	}
 
 	@Override
 	public boolean deleteById(int id) {
-		return new ClientDaoSqlImpl().deleteById(id);
+		return new ClientDaoJpaImpl().deleteById(id);
 	}
 
 	public boolean validateUserInfo(String login, String password, String nom, String prenom, String adresse) {
