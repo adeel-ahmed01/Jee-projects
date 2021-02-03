@@ -16,11 +16,13 @@ public class CommandeDaoSqlImpl extends DaoSql implements CommandeDao {
 	
 	private static final String SELECT_BY_ID = "SELECT * FROM commande WHERE CMD_ID = ?";
 	
-	private static final String INSERT = "INSERT INTO commande (CMD_ID, CMD_DATE, CMD_CLIENT_ID, CMD_MONTANT) " //
-										+ "VALUES (?,?,?,?,?)"; //
+	private static final String SELECT_BY_CLIENT_ID = "SELECT * FROM commande WHERE CMD_CLIENT_ID = ?";
+	
+	private static final String INSERT = "INSERT INTO commande (CMD_DATE, CMD_CLIENT_ID, CMD_MONTANT) " //
+										+ "VALUES (?,?,?)"; //
 	
 	private static final String UPDATE = "UPDATE commande " //
-										+ "SET CMD_ID = ?, CMD_DATE = ?, CMD_CLIENT_ID = ?, CMD_MONTANT = ? " //
+										+ "CMD_DATE = ?, CMD_CLIENT_ID = ?, CMD_MONTANT = ? " //
 										+ "WHERE CMD_ID = ?"; //
 	
 	private static final String DELETE = "DELETE FROM commande WHERE CMD_ID = ?";
@@ -62,6 +64,26 @@ public class CommandeDaoSqlImpl extends DaoSql implements CommandeDao {
 		}
 		return null;
 	}
+	
+
+	public List<Commande> findByClientId(int id) {
+		List<Commande> commandes = new ArrayList<Commande>();
+		try {
+			this.openConnection();
+			PreparedStatement pstmt = this.connexionSql.prepareStatement(SELECT_BY_CLIENT_ID);
+			pstmt.setInt(1, id);
+			ResultSet rs = pstmt.executeQuery();
+			while (rs.next()) {
+				commandes.add(mapResult(rs));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} 
+		finally {
+			this.closeConnection();
+		}
+		return commandes;
+	}
 
 	@Override
 	public Commande add(Commande entity) {
@@ -70,10 +92,11 @@ public class CommandeDaoSqlImpl extends DaoSql implements CommandeDao {
 			PreparedStatement pstmt = this.connexionSql.prepareStatement(INSERT);
 			pstmt.setDate(1, new java.sql.Date(entity.getDate().getTime()));
 			pstmt.setInt(2, entity.getClientId());
-			pstmt.setInt(3, entity.getMontant());
+			pstmt.setDouble(3, entity.getMontant());
 			pstmt.execute();
 		} catch (SQLException e) {
 			e.printStackTrace();
+			return null;
 		}
 		finally {
 			this.closeConnection();
@@ -88,10 +111,11 @@ public class CommandeDaoSqlImpl extends DaoSql implements CommandeDao {
 			PreparedStatement pstmt = this.connexionSql.prepareStatement(UPDATE);
 			pstmt.setDate(1, new java.sql.Date(entity.getDate().getTime()));
 			pstmt.setInt(2, entity.getClientId());
-			pstmt.setInt(3, entity.getMontant());
+			pstmt.setDouble(3, entity.getMontant());
 			pstmt.execute();
 		} catch (SQLException e) {
 			e.printStackTrace();
+			return null;
 		}
 		finally {
 			this.closeConnection();
@@ -121,7 +145,7 @@ public class CommandeDaoSqlImpl extends DaoSql implements CommandeDao {
 					.id(rs.getInt("CMD_ID"))
 					.date(rs.getDate("CMD_DATE"))
 					.clientId(rs.getInt("CMD_CLIENT_ID"))
-					.montant(rs.getInt("CMD_MONTANT"));
+					.montant(rs.getDouble("CMD_MONTANT"));
 	}
 
 }

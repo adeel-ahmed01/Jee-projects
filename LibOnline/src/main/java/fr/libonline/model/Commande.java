@@ -7,13 +7,13 @@ public class Commande {
 	private int id;
 	private Date date;
 	private int clientId;
-	private int montant;
+	private Double montant;
 	
 	public Commande() {
 	
 	}
 	
-	public Commande(int id, Date date, int clientId, int montant) {
+	public Commande(int id, Date date, int clientId, Double montant) {
 		super();
 		this.id = id;
 		this.date = date;
@@ -21,7 +21,7 @@ public class Commande {
 		this.montant = montant;
 	}
 
-	public Commande(Date date, int clientId, int montant) {
+	public Commande(Date date, int clientId, Double montant) {
 		super();
 		this.date = date;
 		this.clientId = clientId;
@@ -55,11 +55,11 @@ public class Commande {
 		return this;
 	}
 	
-	public int getMontant() {
+	public Double getMontant() {
 		return montant;
 	}
 	
-	public Commande montant(int montant) {
+	public Commande montant(Double montant) {
 		this.montant = montant;
 		return this;
 	}

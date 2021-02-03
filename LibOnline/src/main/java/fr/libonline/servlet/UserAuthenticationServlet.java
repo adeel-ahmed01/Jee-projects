@@ -7,21 +7,29 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import fr.libonline.model.Client;
+
 @WebServlet(urlPatterns = {
-		"/clients",
-		"/clients-update",
-		"/clients-delete"
+		"/login-page",
+		"/register-page",
+		"/disconnect"
 })
-public class ClientServlet extends HttpServlet {
+public class UserAuthenticationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		this.getServletContext()
-			.getRequestDispatcher("/WEB-INF/views/user/login.jsp")
-			.forward(request, response);
+		if (request.getServletPath().equals("/login-page")) {
+			response.sendRedirect("login");
+		} else if (request.getServletPath().equals("/register-page")) {
+			response.sendRedirect("register");
+		} else if (request.getServletPath().equals("/disconnect")) {
+			request.getSession().removeAttribute("currentUser");
+			response.sendRedirect("livres");
+		}
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 	}
+
 }

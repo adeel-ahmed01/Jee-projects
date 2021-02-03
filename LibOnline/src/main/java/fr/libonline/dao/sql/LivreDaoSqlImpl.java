@@ -25,6 +25,7 @@ public class LivreDaoSqlImpl extends DaoSql implements LivreDao{
 			+ "WHERE LIV_TITRE = ? " //
 			+ "LIMIT 1"; //
 	
+		// TODO
 //	private static final String SELECT_BY_TITRE_AND_AUTEUR = "SELECT * FROM livre " //
 //			+ "WHERE LIV_TITRE = ? AND LIV_AUTEUR = ? "//
 //			+ "LIMIT 1"; //
@@ -32,6 +33,7 @@ public class LivreDaoSqlImpl extends DaoSql implements LivreDao{
 	private static final String SELECT_ALL_PHOTOS = "SELECT * FROM livre " //
 			+ "WHERE LIV_PHOTO = ? "; //
 	
+		// TODO
 //	private static final String SELECT_PHOTOS_BY_AUTEUR = "SELECT * FROM livre " //
 //			+ "WHERE LIV_AUTEUR = ? AND LIV_PHOTO = ?";//
 	
@@ -114,6 +116,7 @@ public class LivreDaoSqlImpl extends DaoSql implements LivreDao{
 			pstmt.setDouble(3, entity.getPrix());
 			pstmt.setString(4, entity.getPhoto());
 			pstmt.setString(5, entity.getResume());
+			pstmt.setInt(6, entity.getId());
 			pstmt.execute();
 		} catch (SQLException e) {
 			e.printStackTrace();
