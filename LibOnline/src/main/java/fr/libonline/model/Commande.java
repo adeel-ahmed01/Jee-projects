@@ -1,12 +1,28 @@
 package fr.libonline.model;
 
 import java.util.Date;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "commande")
 public class Commande {
-	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "CM_ID")
 	private int id;
+	
+	@Column(name = "CM_DATE", length = 10, nullable = false)
 	private Date date;
+	
+	@Column(name = "CM_CL_ID", nullable = false)
 	private int clientId;
+	
+	@Column(name = "CM_MONTANT", length = 50, nullable = false)
 	private Double montant;
 	
 	public Commande() {

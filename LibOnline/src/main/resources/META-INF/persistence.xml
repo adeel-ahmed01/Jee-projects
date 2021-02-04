@@ -9,6 +9,7 @@
 		
 		<!-- Liste des entités à persister (nom des classes complète) -->
 		<class>fr.formation.model.Client</class>
+		<class>fr.formation.model.Commande</class>
 		
 		<properties>
 			<!-- Configuration accès SQL -->
