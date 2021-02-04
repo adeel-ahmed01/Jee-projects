@@ -1,14 +1,33 @@
 package fr.libonline.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "livre")
 public class Livre {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "LIV_ID")
 	private int id;
+	
+	@Column(name = "LIV_NOM", length = 50, nullable = false)
 	private String titre;
+	@Column(name = "LIV_AUTEUR", length = 50, nullable = false)
 	private String auteur;
+	@Column(name = "LIV_PRIX", precision = 10, scale = 2, nullable = false)
 	private Double prix;
+	@Column(name = "LIV_PHOTO", length = 250, nullable = true)
 	private String photo;
+	@Column(name = "LIV_RESUME", length = 500, nullable = true)
 	private String resume;
 
-	public Livre() {
+public Livre() {
 
 	}
 
