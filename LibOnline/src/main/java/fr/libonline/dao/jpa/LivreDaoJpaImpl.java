@@ -1,8 +1,8 @@
 package fr.libonline.dao.jpa;
 
-import java.util.List;
+import static java.util.Collections.emptyList;
 
-import javax.persistence.Query;
+import java.util.List;
 
 import fr.libonline.dao.LivreDao;
 import fr.libonline.model.Livre;
@@ -18,25 +18,33 @@ public class LivreDaoJpaImpl extends DaoJpa implements LivreDao {
 
 	private static final String SELECT_BY_TITRE = "SELECT l FROM Livre l " //
 													+ "WHERE l.titre = :titre "; //
-	private static final String SELECT_ALL_PHOTOS = "SELECT l FROM Livre l " //
-													+ "WHERE l.photo = :photo "; //
 
 	private static final String DELETE = "DELETE FROM Livre l WHERE l.id = :id";
 
 	
 	@Override
 	public List<Livre> findAll() {
-		return em
-				.createQuery(SELECT_ALL, Livre.class)
-				.getResultList();
+		try {
+			return em
+					.createQuery(SELECT_ALL, Livre.class)
+					.getResultList();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return emptyList();
 	}
 
 	@Override
 	public Livre findById(int id) {
-		return em
-				.createQuery(SELECT_BY_ID, Livre.class)
-				.setParameter("id", id)
-				.getSingleResult();
+		try {
+			return em
+					.createQuery(SELECT_BY_ID, Livre.class)
+					.setParameter("id", id)
+					.getSingleResult();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
 	public Livre findByAuthor(String auteur) {
@@ -47,8 +55,9 @@ public class LivreDaoJpaImpl extends DaoJpa implements LivreDao {
 					.setMaxResults(1)
 					.getSingleResult();
 		} catch (Exception e) {
-			return null;
+			e.printStackTrace();
 		}
+		return null;
 	}
 	
 	public Livre findByTitle(String titre) {
@@ -59,20 +68,9 @@ public class LivreDaoJpaImpl extends DaoJpa implements LivreDao {
 					.setMaxResults(1)
 					.getSingleResult();
 		} catch (Exception e) {
-			return null;
+			e.printStackTrace();
 		}
-	}
-	
-	public Livre findAllPics(String photo) {
-		try {
-			//Cast ajoute a Livre pour renvoi des resultats multiples
-			return (Livre) em
-					.createQuery(SELECT_ALL_PHOTOS, Livre.class)
-					.setParameter("photo", photo)
-					.getResultList();
-		} catch (Exception e) {
-			return null;
-		}
+		return null;
 	}
 
 	@Override

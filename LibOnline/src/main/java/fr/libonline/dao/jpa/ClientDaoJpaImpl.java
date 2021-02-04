@@ -1,5 +1,7 @@
 package fr.libonline.dao.jpa;
 
+import static java.util.Collections.emptyList;
+
 import java.util.List;
 
 import javax.persistence.Query;
@@ -23,17 +25,27 @@ public class ClientDaoJpaImpl extends DaoJpa implements ClientDao {
 
 	@Override
 	public List<Client> findAll() {
-		return em
-				.createQuery(SELECT_ALL, Client.class)
-				.getResultList();
+		try {
+			return em
+					.createQuery(SELECT_ALL, Client.class)
+					.getResultList();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return emptyList();
 	}
 
 	@Override
 	public Client findById(int id) {
-		return em
-				.createQuery(SELECT_BY_ID, Client.class)
-				.setParameter("id", id)
-				.getSingleResult();
+		try {
+			return em
+					.createQuery(SELECT_BY_ID, Client.class)
+					.setParameter("id", id)
+					.getSingleResult();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
 	public Client findByLogin(String login) {
@@ -44,8 +56,9 @@ public class ClientDaoJpaImpl extends DaoJpa implements ClientDao {
 					.setMaxResults(1)
 					.getSingleResult();
 		} catch (Exception e) {
-			return null;
+			e.printStackTrace();
 		}
+		return null;
 	}
 	
 	public Client findByLoginAndPassword(String login, String password) {
@@ -57,8 +70,9 @@ public class ClientDaoJpaImpl extends DaoJpa implements ClientDao {
 								.setMaxResults(1)
 								.getSingleResult();
 		} catch (Exception e) {
-			return null;
+			e.printStackTrace();
 		}
+		return null;
 	}
 
 	@Override

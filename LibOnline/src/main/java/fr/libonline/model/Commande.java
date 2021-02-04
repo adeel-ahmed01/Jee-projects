@@ -1,28 +1,32 @@
 package fr.libonline.model;
 
 import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "commande")
 public class Commande {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "CM_ID")
+	@Column(name = "CMD_ID")
 	private int id;
 	
-	@Column(name = "CM_DATE", length = 10, nullable = false)
+	@Column(name = "CMD_DATE", nullable = false)
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date date;
 	
-	@Column(name = "CM_CL_ID", nullable = false)
+	@Column(name = "CMD_CLIENT_ID", nullable = false)
 	private int clientId;
 	
-	@Column(name = "CM_MONTANT", length = 50, nullable = false)
+	@Column(name = "CMD_MONTANT", nullable = false)
 	private Double montant;
 	
 	public Commande() {
@@ -30,7 +34,6 @@ public class Commande {
 	}
 	
 	public Commande(int id, Date date, int clientId, Double montant) {
-		super();
 		this.id = id;
 		this.date = date;
 		this.clientId = clientId;
@@ -38,7 +41,6 @@ public class Commande {
 	}
 
 	public Commande(Date date, int clientId, Double montant) {
-		super();
 		this.date = date;
 		this.clientId = clientId;
 		this.montant = montant;

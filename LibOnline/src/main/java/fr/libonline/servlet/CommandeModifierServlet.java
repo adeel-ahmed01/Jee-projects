@@ -49,7 +49,7 @@ private static final long serialVersionUID = 1L;
 		
 		Date dateCommande = convertDate(dateCommandeString);
 		int clientId = Integer.parseInt(clientIdString);
-		int montantCommande = Integer.parseInt(montantCommandeString);
+		Double montantCommande = Double.parseDouble(montantCommandeString);
 		int idCommande = Integer.parseInt(idCommandeString);
 		
 		
