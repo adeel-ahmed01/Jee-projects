@@ -16,7 +16,7 @@ public class Livre {
 	@Column(name = "LIV_ID")
 	private int id;
 	
-	@Column(name = "LIV_NOM", length = 50, nullable = false)
+	@Column(name = "LIV_TITRE", length = 50, nullable = false)
 	private String titre;
 	@Column(name = "LIV_AUTEUR", length = 50, nullable = false)
 	private String auteur;
